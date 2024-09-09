@@ -19,14 +19,13 @@ interface MultiverseData {
 
 const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
   const mountRef = useRef<HTMLDivElement>(null);
-  const [isActive, setIsActive] = useState(false); // Estado para controlar se o componente está ativo
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    if (!mountRef.current || !isActive) return; // Só inicializa o Three.js se estiver ativo
+    if (!mountRef.current || !isActive) return; 
 
     const currentMount = mountRef.current;
 
-    // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -35,24 +34,20 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
       1000
     );
 
-    // Configuração para fundo transparente
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    renderer.setClearColor(0x000000, 0); // Transparente
+    renderer.setClearColor(0x000000, 0); 
     currentMount.appendChild(renderer.domElement);
 
-    // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
     const pointLight = new THREE.PointLight(0xffffff, 1);
     pointLight.position.set(5, 5, 5);
     scene.add(pointLight);
 
-    // Orbit controls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
 
-    // Create nodes
     const nodeObjects: { [key: string]: THREE.Mesh } = {};
     data.nodes.forEach((node) => {
       const geometry = new THREE.SphereGeometry(0.5, 32, 32);
@@ -69,7 +64,6 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
       nodeObjects[node.id] = sphere;
     });
 
-    // Create links
     data.links.forEach((link) => {
       const sourceNode = nodeObjects[link.source];
       const targetNode = nodeObjects[link.target];
@@ -86,7 +80,6 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
 
     camera.position.z = 15;
 
-    // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
       controls.update();
@@ -94,46 +87,46 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
     };
     animate();
 
-    // Handle resize
     const handleResize = () => {
       camera.aspect = currentMount.clientWidth / currentMount.clientHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     };
 
-    // Handle keypress for 'Esc' to deactivate
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setIsActive(false); // Desativa o componente ao pressionar 'Esc'
+        setIsActive(false); 
       }
     };
 
     window.addEventListener('resize', handleResize);
     window.addEventListener('keydown', handleKeyPress);
-
-    // Cleanup
+    
     return () => {
       currentMount.removeChild(renderer.domElement);
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [data, isActive]); // Dependência adicionada para o estado ativo
+  }, [data, isActive]); 
 
-  // Função para ativar a renderização ao clicar
   const handleActivate = () => setIsActive(true);
 
-  // Ajuste o tamanho e a visibilidade
   return (
-    <div
-      ref={mountRef}
-      style={{ width: '100%', height: '50vh', cursor: 'pointer' }}
-      onClick={handleActivate}
-    >
-      {!isActive && (
-        <div className="flex items-center justify-center h-full w-full text-white">
-          Clique para ativar
-        </div>
-      )}
+    <div className="relative w-full h-full">      
+      <div
+        ref={mountRef}
+        style={{ width: '100%', height: '100%' }}
+      />      
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 mb-4">
+        {!isActive && (
+          <button
+            className="bg-gradient-to-r from-[#86AB89] to-[#A28B55] text-xl font-semibold py-2 px-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl hover:underline focus:outline-none"
+            onClick={handleActivate}
+          >
+            🌌 Explore the Knowledge Tree
+          </button>
+        )}
+      </div>
     </div>
   );
 };

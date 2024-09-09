@@ -14,14 +14,6 @@
   }
 }
 
-body {
-
-  font-family: Arial, Helvetica, sans-serif;
-  min-height: 100vh; /* Adiciona isso para garantir que o body ocupe toda a altura da tela */
-  margin: 0; /* Adiciona isso para remover margens padrão */
-  display: flex; /* Certifique-se de que o layout é flexível */
-  flex-direction: column; /* Flex-direction para coluna para garantir que o conteúdo se expanda */
-}
 
 @layer utilities {
   .text-balance {
