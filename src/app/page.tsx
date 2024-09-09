@@ -48,7 +48,7 @@ export default function Home() {
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 md:pr-4 mb-4 md:mb-0 p-20 pt-5 ">
               <h2 className="text-4xl font-extrabold mb-4 text-[#F96458] tracking-wide font-serif">
-              Hi, I&apos;m Michael Rodrigue
+              Hi, I&apos;m Michael Rodrigues
               </h2>
               <p className="text-lg mb-6 leading-relaxed text-gray-300 font-light">
                 A passionate software developer with 4 years of experience. Driven by curiosity and fueled by caffeine, I love turning ideas into reality. Whether it&apos;s crafting efficient code or solving complex problems, my goal is to create impactful digital experiences.
