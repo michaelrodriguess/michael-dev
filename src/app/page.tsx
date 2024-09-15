@@ -16,7 +16,7 @@ export default function Home() {
             height={48}
             className="rounded-full object-cover"
             />
-            <div className="ml-2">
+            <div className="ml-2 bg-red-400">
               Michael Rodrigues
             </div>
           </div>
