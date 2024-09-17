@@ -16,7 +16,7 @@ export default function Home() {
             height={48}
             className="rounded-full object-cover"
             />
-            <div className="ml-2 bg-red-400">
+            <div className="ml-2">
               Michael Rodrigues
             </div>
           </div>
@@ -78,9 +78,6 @@ export default function Home() {
             <MultiverseScene data={projectData} />
           </div>
         </section>
-    
-      </div>
-
 
       <section id="skills" className="py-20 flex flex-col items-center justify-center bg-white text-center">
         <h2 className="text-3xl font-semibold mb-4">Habilidades</h2>
@@ -102,6 +99,9 @@ export default function Home() {
           contact here
         </p>
       </section>
+
+      </div>
+
 
       
     </main>
