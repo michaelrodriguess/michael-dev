@@ -48,7 +48,7 @@ function Header() {
           {isMenuOpen ? (
             <IoCloseOutline className="w-6 h-6" />
           ) : (
-            <CiMenuBurger className="w-6 h-6" />
+            <CiMenuBurger className="w-6 h-6 " />
           )}
         </button>
       </div>

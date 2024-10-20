@@ -12,20 +12,20 @@ export default function Home() {
 
         <section id="sobre" className="py-5 flex items-center justify-center">
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0 p-4 sm:p-6 lg:p-8">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4 text-[#F96458] tracking-wide font-serif">
+            <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0 p-4 sm:p-6 lg:p-8 text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold mb-4 text-[#F96458] tracking-wide font-serif">
                 Hi, I&apos;m Michael Rodrigues
               </h2>
-              <p className="text-sm sm:text-base lg:text-lg mb-6 leading-relaxed text-gray-300 font-light">
+              <p className="text-lg lg:text-lg mb-6 leading-relaxed text-gray-300 font-light">
                 A passionate software developer with 4 years of experience.
                 Driven by curiosity and fueled by caffeine, I love turning ideas
                 into reality. Whether it&apos;s crafting efficient code or
                 solving complex problems, my goal is to create impactful digital
                 experiences.
               </p>
-              <blockquote className="border-l-4 border-[#A8DADC] pl-4 italic text-sm sm:text-base lg:text-lg font-semibold text-[#A8DADC]">
+              <blockquote className="border-l-4 border-[#A8DADC] pl-4 italic text-lg lg:text-lg font-semibold text-[#A8DADC] mb-4 sm:mb-6">
                 Be the change you wish to see in the world
-                <span className="block mt-2 text-xs sm:text-sm text-gray-400">
+                <span className="block mt-2 text-sm sm:text-sm text-gray-400">
                   — Mahatma Gandhi
                 </span>
               </blockquote>
