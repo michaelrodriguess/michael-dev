@@ -6,8 +6,8 @@ import Header from "@/components/Header";
 
 export default function Home() {
   return (
-    <main className="w-full">
-      <div className="bg-[#34353A] min-h-screen">
+    <main className="w-full bg-[#34353A]">
+      <div className=" min-h-screen">
         <Header />
 
         <section id="sobre" className="py-5 flex items-center justify-center">
@@ -68,7 +68,7 @@ export default function Home() {
 
       <section
         id="habilidades"
-        className="py-10 sm:py-16 lg:py-20 flex flex-col items-center justify-center bg-white text-center"
+        className="py-10 sm:py-16 lg:py-20 flex flex-col items-center justify-center text-center"
       >
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6">
           Habilidades
@@ -79,20 +79,8 @@ export default function Home() {
       </section>
 
       <section
-        id="blog"
-        className="py-10 sm:py-16 lg:py-20 flex flex-col items-center justify-center bg-gray-100 text-center"
-      >
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6">
-          Blog
-        </h2>
-        <div className="container mx-auto px-4">
-          <p className="max-w-2xl mx-auto text-gray-700">blog here</p>
-        </div>
-      </section>
-
-      <section
         id="contato"
-        className="py-10 sm:py-16 lg:py-20 flex flex-col items-center justify-center bg-white text-center"
+        className="py-10 sm:py-16 lg:py-20 flex flex-col items-center justify-center text-center"
       >
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6">
           Contato
