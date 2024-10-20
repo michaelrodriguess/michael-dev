@@ -2,41 +2,13 @@
 import Image from "next/image";
 import MultiverseScene from "../components/MultiverseScene";
 import { projectData } from "../lib/projectData";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
     <main className="w-full">
       <div className="bg-[#34353A] min-h-screen">
-        <header className="flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 py-4 text-white">
-          <div className="flex items-center mb-4 sm:mb-0">
-            <Image
-              src="/aiMaik.webp"
-              alt="Logo"
-              width={48}
-              height={48}
-              className="rounded-full object-cover"
-            />
-            <div className="ml-2 text-lg sm:text-xl">Michael Rodrigues</div>
-          </div>
-          <nav className="flex flex-wrap justify-center gap-2 sm:gap-4">
-            {[
-              "Sobre",
-              "Árvore do Conhecimento",
-              "Habilidades",
-              "Blog",
-              "Contato",
-            ].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(/ /g, "-")}`}
-                className="relative group text-white px-2 py-1"
-              >
-                {item}
-                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#FFCF96] transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
-          </nav>
-        </header>
+        <Header />
 
         <section id="sobre" className="py-5 flex items-center justify-center">
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
