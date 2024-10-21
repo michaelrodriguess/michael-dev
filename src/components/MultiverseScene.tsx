@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 interface Node {
   id: string;
@@ -22,7 +24,7 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    if (!mountRef.current || !isActive) return; 
+    if (!mountRef.current || !isActive) return;
 
     const currentMount = mountRef.current;
 
@@ -36,7 +38,7 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
-    renderer.setClearColor(0x000000, 0); 
+    renderer.setClearColor(0x000000, 0);
     currentMount.appendChild(renderer.domElement);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
@@ -94,29 +96,26 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
     };
 
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsActive(false); 
+      if (event.key === "Escape") {
+        setIsActive(false);
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('keydown', handleKeyPress);
-    
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("keydown", handleKeyPress);
+
     return () => {
       currentMount.removeChild(renderer.domElement);
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('keydown', handleKeyPress);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("keydown", handleKeyPress);
     };
-  }, [data, isActive]); 
+  }, [data, isActive]);
 
   const handleActivate = () => setIsActive(true);
 
   return (
-    <div className="relative w-full h-full">      
-      <div
-        ref={mountRef}
-        style={{ width: '100%', height: '100%' }}
-      />      
+    <div className="relative w-full h-full">
+      <div ref={mountRef} style={{ width: "100%", height: "100%" }} />
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 mb-4">
         {!isActive && (
           <button

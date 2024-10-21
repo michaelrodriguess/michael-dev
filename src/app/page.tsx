@@ -1,13 +1,15 @@
-"use client";
+import React from "react";
 import Image from "next/image";
 import MultiverseScene from "../components/MultiverseScene";
 import { projectData } from "../lib/projectData";
 import Header from "@/components/Header";
+import SkillsSection from "@/components/SkillsSection";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Home() {
   return (
     <main className="w-full bg-[#34353A]">
-      <div className=" min-h-screen">
+      <div className="min-h-screen">
         <Header />
 
         <section id="sobre" className="py-5 flex items-center justify-center">
@@ -31,7 +33,7 @@ export default function Home() {
               </blockquote>
             </div>
 
-            <div className="pl-20 w-full sm:w-2/3 md:w-1/2 lg:w-1/2 xl:w-5/12 max-lg:hidden ">
+            <div className="pl-20 w-full sm:w-2/3 md:w-1/2 lg:w-1/2 xl:w-5/12 max-lg:hidden">
               <div
                 className="relative border-2 border-[#FFCF96] rounded-3xl overflow-hidden"
                 style={{ display: "inline-block", maxWidth: "100%" }}
@@ -57,38 +59,58 @@ export default function Home() {
           id="árvore-do-conhecimento"
           className="py-10 sm:py-16 lg:py-20 flex flex-col items-center justify-center"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-center text-white">
-            Árvore do Conhecimento
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-center  text-[#F96458]">
+            Knowledge Tree
           </h2>
           <div className="border-2 border-[#FFCF96] rounded-xl w-full max-w-3xl h-[300px] sm:h-[400px] lg:h-[500px] flex items-center justify-center bg-black">
             <MultiverseScene data={projectData} />
           </div>
         </section>
+
+        <section id="habilidades" className="py-10 sm:py-16 lg:py-20">
+          <SkillsSection />
+        </section>
+
+        <section id="contato" className="py-10 sm:py-16 lg:py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#F96458]">
+              Contact
+            </h2>
+            <div className="max-w-2xl mx-auto space-y-8">
+              <p className="text-lg text-center text-gray-300 mb-8">
+                Interessado em trabalhar juntos? Vamos conversar!
+              </p>
+              <div className="flex flex-wrap justify-center gap-6">
+                <a
+                  href="https://github.com/michaelrodriguess"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-[#F96458] text-white rounded-lg hover:bg-[#e55a4f] transition-colors"
+                >
+                  <Github size={20} />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="https://linkedin.com/in/michaelrodriguess/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-[#F96458] text-white rounded-lg hover:bg-[#e55a4f] transition-colors"
+                >
+                  <Linkedin size={20} />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="mailto:hi@michaelrodrigues.dev"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-[#F96458] text-white rounded-lg hover:bg-[#e55a4f] transition-colors"
+                >
+                  <Mail size={20} />
+                  <span>Email</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-
-      <section
-        id="habilidades"
-        className="py-10 sm:py-16 lg:py-20 flex flex-col items-center justify-center text-center"
-      >
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6">
-          Habilidades
-        </h2>
-        <div className="container mx-auto px-4">
-          <p className="max-w-2xl mx-auto text-gray-700">skills here</p>
-        </div>
-      </section>
-
-      <section
-        id="contato"
-        className="py-10 sm:py-16 lg:py-20 flex flex-col items-center justify-center text-center"
-      >
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-6">
-          Contato
-        </h2>
-        <div className="container mx-auto px-4">
-          <p className="max-w-2xl mx-auto text-gray-700">contact here</p>
-        </div>
-      </section>
     </main>
   );
 }
