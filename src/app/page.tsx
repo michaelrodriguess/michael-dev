@@ -71,16 +71,62 @@ export default function Home() {
           <SkillsSection />
         </section>
 
-        <section id="contato" className="py-10 sm:py-16 lg:py-20">
+        <section id="contato" className="bg-[#2A2B30] py-3">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#F96458]">
               Contact
             </h2>
             <div className="max-w-2xl mx-auto space-y-8">
               <p className="text-lg text-center text-gray-300 mb-8">
-                Interessado em trabalhar juntos? Vamos conversar!
+                Interested in working together? Let&apos;s talk!
               </p>
-              <div className="flex flex-wrap justify-center gap-6">
+
+              <form className="bg-[#3F404A] rounded-lg p-6 shadow-lg">
+                <div className="mb-4">
+                  <label className="block text-gray-300 mb-2" htmlFor="name">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full p-3 rounded bg-[#2A2B30] text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F96458] transition"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-gray-300 mb-2" htmlFor="email">
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full p-3 rounded bg-[#2A2B30] text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F96458] transition"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-gray-300 mb-2" htmlFor="message">
+                    Your Message
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    className="w-full p-3 rounded bg-[#2A2B30] text-gray-300 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F96458] transition"
+                    placeholder="Write your message"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full p-3 bg-[#F96458] text-white rounded-lg hover:bg-[#D95A4C] transition"
+                >
+                  Send Message
+                </button>
+              </form>
+
+              <div className="flex flex-wrap justify-center gap-6 mt-8">
                 <a
                   href="https://github.com/michaelrodriguess"
                   target="_blank"
