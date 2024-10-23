@@ -68,7 +68,7 @@ const SkillsSection = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-[#F96458]">
         Skills
       </h2>
@@ -78,10 +78,10 @@ const SkillsSection = () => {
         competencies:
       </p>
 
-      <div className="bg-[#3F404A] rounded-xl p-6 transition-all">
+      <div className="bg-[#3F404A] rounded-xl p-4 sm:p-6 transition-all">
         <div className="flex items-center gap-3 mb-4">
           {React.createElement(skillsData[activeCategory].icon, {
-            className: "text-[#F96458]",
+            className: "text-[#F96458] ",
             size: 24,
           })}
           <Select
@@ -90,7 +90,7 @@ const SkillsSection = () => {
               setActiveCategory(value)
             }
           >
-            <SelectTrigger className="bg-transparent border-none shadow-none hover:bg-[#34353A] transition-colors text-[#F96458] font-semibold text-xl w-auto">
+            <SelectTrigger className="bg-transparent border-none shadow-none hover:bg-[#34353A] transition-colors text-[#F96458] font-semibold text-lg md:text-xl w-auto ">
               <SelectValue defaultValue={activeCategory}>
                 {skillsData[activeCategory].title}
               </SelectValue>
@@ -113,23 +113,23 @@ const SkillsSection = () => {
             </SelectContent>
           </Select>
         </div>
-        <p className="text-gray-300 mb-6 text-sm">
+        <p className="text-gray-300 mb-6 text-sm md:text-base">
           {skillsData[activeCategory].description}
         </p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {skillsData[activeCategory].skills.map((skill, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-3 bg-[#34353A] rounded-lg hover:bg-[#45464F] transition-colors"
+              className="flex flex-col items-center p-2 sm:p-3 bg-[#34353A] rounded-lg hover:bg-[#45464F] transition-colors"
             >
               <Image
                 src={skill.icon}
                 alt={skill.name}
-                width={30}
-                height={30}
-                className="w-8 h-8 mb-2"
+                width={24}
+                height={24}
+                className="w-6 h-6 sm:w-8 sm:h-8 mb-2"
               />
-              <span className="text-sm text-gray-300 text-center">
+              <span className="text-xs sm:text-sm text-gray-300 text-center">
                 {skill.name}
               </span>
             </div>
