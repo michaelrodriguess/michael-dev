@@ -3,6 +3,13 @@
 import React, { useState } from "react";
 import { Globe, Database, Palette } from "lucide-react";
 import Image from "next/image";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/Select";
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] =
@@ -60,16 +67,6 @@ const SkillsSection = () => {
     },
   };
 
-  const categoryButtons: Array<{
-    id: keyof typeof skillsData;
-    label: string;
-    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  }> = [
-    { id: "frontend", label: "Frontend", icon: Globe },
-    { id: "backend", label: "Backend", icon: Database },
-    { id: "tools", label: "Tools", icon: Palette },
-  ];
-
   return (
     <div className="max-w-4xl mx-auto">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-[#F96458]">
@@ -81,32 +78,40 @@ const SkillsSection = () => {
         competencies:
       </p>
 
-      <div className="flex justify-center gap-4 mb-8">
-        {categoryButtons.map(({ id, label, icon: Icon }) => (
-          <button
-            key={id}
-            onClick={() => setActiveCategory(id)}
-            className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-colors ${
-              activeCategory === id
-                ? "bg-[#F96458] text-white"
-                : "bg-[#3F404A] text-gray-300 hover:bg-[#4F505A]"
-            }`}
-          >
-            <Icon width={20} height={20} />
-            <span>{label}</span>
-          </button>
-        ))}
-      </div>
-
       <div className="bg-[#3F404A] rounded-xl p-6 transition-all">
         <div className="flex items-center gap-3 mb-4">
           {React.createElement(skillsData[activeCategory].icon, {
             className: "text-[#F96458]",
             size: 24,
           })}
-          <h3 className="text-xl font-semibold text-[#F96458]">
-            {skillsData[activeCategory].title}
-          </h3>
+          <Select
+            value={activeCategory}
+            onValueChange={(value: keyof typeof skillsData) =>
+              setActiveCategory(value)
+            }
+          >
+            <SelectTrigger className="bg-transparent border-none shadow-none hover:bg-[#34353A] transition-colors text-[#F96458] font-semibold text-xl w-auto">
+              <SelectValue defaultValue={activeCategory}>
+                {skillsData[activeCategory].title}
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent className="bg-[#34353A] border-[#4F505A]">
+              {Object.entries(skillsData).map(([key, value]) => (
+                <SelectItem
+                  key={key}
+                  value={key}
+                  className="text-gray-300 hover:text-white hover:bg-[#4F505A] cursor-pointer"
+                >
+                  <div className="flex items-center gap-2">
+                    {React.createElement(value.icon, {
+                      size: 16,
+                    })}
+                    <span>{value.title}</span>
+                  </div>
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         <p className="text-gray-300 mb-6 text-sm">
           {skillsData[activeCategory].description}

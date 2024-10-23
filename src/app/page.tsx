@@ -12,22 +12,25 @@ export default function Home() {
       <div className="min-h-screen">
         <Header />
 
-        <section id="sobre" className="py-5 flex items-center justify-center">
-          <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center">
-            <div className="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0 p-4 sm:p-6 lg:p-8 text-center lg:text-left">
-              <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold mb-4 text-[#F96458] tracking-wide font-serif">
+        <section
+          id="sobre"
+          className="py-8 lg:py-12 flex items-center justify-center"
+        >
+          <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
+            <div className="w-full lg:w-1/2 p-4 sm:p-6 lg:p-8 text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold mb-6 text-[#F96458] tracking-wide font-serif">
                 Hi, I&apos;m Michael Rodrigues
               </h2>
-              <p className="text-lg lg:text-lg mb-6 leading-relaxed text-gray-300 font-light">
+              <p className="text-base sm:text-lg mb-6 leading-relaxed text-gray-300 font-light">
                 A passionate software developer with 4 years of experience.
                 Driven by curiosity and fueled by caffeine, I love turning ideas
                 into reality. Whether it&apos;s crafting efficient code or
                 solving complex problems, my goal is to create impactful digital
                 experiences.
               </p>
-              <blockquote className="border-l-4 border-[#A8DADC] pl-4 italic text-lg lg:text-lg font-semibold text-[#A8DADC] mb-4 sm:mb-6">
+              <blockquote className="border-l-4 border-[#A8DADC] pl-4 italic text-lg font-semibold text-[#A8DADC] mb-6">
                 Be the change you wish to see in the world
-                <span className="block mt-2 text-sm sm:text-sm text-gray-400">
+                <span className="block mt-2 text-sm text-gray-400">
                   — Mahatma Gandhi
                 </span>
               </blockquote>
@@ -48,7 +51,6 @@ export default function Home() {
                     width: "100%",
                     objectFit: "contain",
                   }}
-                  className="rounded-3xl"
                 />
               </div>
             </div>
@@ -57,9 +59,9 @@ export default function Home() {
 
         <section
           id="árvore-do-conhecimento"
-          className="py-10 sm:py-16 lg:py-20 flex flex-col items-center justify-center"
+          className="py-5 sm:py-10 lg:py-10 flex flex-col items-center justify-center"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-center  text-[#F96458]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-center text-[#F96458]">
             Knowledge Tree
           </h2>
           <div className="border-2 border-[#FFCF96] rounded-xl w-full max-w-3xl h-[300px] sm:h-[400px] lg:h-[500px] flex items-center justify-center bg-black">
