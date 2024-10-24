@@ -4,7 +4,7 @@ import MultiverseScene from "../components/MultiverseScene";
 import { projectData } from "../lib/projectData";
 import Header from "@/components/Header";
 import SkillsSection from "@/components/SkillsSection";
-import { Github, Linkedin, Mail } from "lucide-react";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         <Header />
 
         <section
-          id="sobre"
+          id="about"
           className="py-8 lg:py-12 flex items-center justify-center"
         >
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
@@ -43,7 +43,7 @@ export default function Home() {
               >
                 <Image
                   src="/sobreMaik.webp"
-                  alt="Sobre Michael Rodrigues"
+                  alt="About Michael Rodrigues"
                   width={800}
                   height={500}
                   style={{
@@ -58,7 +58,7 @@ export default function Home() {
         </section>
 
         <section
-          id="árvore-do-conhecimento"
+          id="knowledge-tree"
           className="py-5 sm:py-10 lg:py-10 flex flex-col items-center justify-center"
         >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-center text-[#F96458]">
@@ -69,98 +69,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="habilidades" className="py-10 sm:py-16 lg:py-20">
+        <section id="skills" className="py-10 sm:py-16 lg:py-20">
           <SkillsSection />
         </section>
 
-        <section id="contato" className="bg-[#2A2B30] py-3">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-[#F96458]">
-              Contact
-            </h2>
-            <div className="max-w-2xl mx-auto space-y-8">
-              <p className="text-lg text-center text-[#C1C1C1] mb-8">
-                Interested in working together? Let&apos;s talk!
-              </p>
-
-              <form className="bg-[#3F404A] rounded-lg p-6 shadow-lg">
-                <div className="mb-4">
-                  <label className="block text-[#C1C1C1] mb-2" htmlFor="name">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full p-3 rounded bg-[#383A3F] text-[#C1C1C1] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F96458] focus:ring-opacity-50 transition"
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <label className="block text-[#C1C1C1] mb-2" htmlFor="email">
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full p-3 rounded bg-[#383A3F] text-[#C1C1C1] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F96458] focus:ring-opacity-50 transition"
-                    placeholder="Enter your email"
-                    required
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    className="block text-[#C1C1C1] mb-2"
-                    htmlFor="message"
-                  >
-                    Your Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full p-3 rounded bg-[#383A3F] text-[#C1C1C1] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F96458] focus:ring-opacity-50 transition"
-                    placeholder="Write your message"
-                    required
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full p-3 bg-[#F96458] text-white rounded-lg hover:bg-[#D95A4C] transition"
-                >
-                  Send Message
-                </button>
-              </form>
-
-              <div className="flex flex-wrap justify-center gap-6 mt-8">
-                <a
-                  href="https://github.com/michaelrodriguess"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-[#F96458] text-white rounded-lg hover:bg-[#D95A4C] transition-colors"
-                >
-                  <Github size={20} />
-                  <span>GitHub</span>
-                </a>
-                <a
-                  href="https://linkedin.com/in/michaelrodriguess/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-[#F96458] text-white rounded-lg hover:bg-[#D95A4C] transition-colors"
-                >
-                  <Linkedin size={20} />
-                  <span>LinkedIn</span>
-                </a>
-                <a
-                  href="mailto:hi@michaelrodrigues.dev"
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-[#F96458] text-white rounded-lg hover:bg-[#D95A4C] transition-colors"
-                >
-                  <Mail size={20} />
-                  <span>Email</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ContactSection />
       </div>
     </main>
   );
