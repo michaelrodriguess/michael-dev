@@ -97,8 +97,9 @@ const ContactSection: React.FC = () => {
         </div>
 
         <div className="mt-8 sm:mt-12 lg:mt-16 text-center">
+          <hr className="border-t border-[#C1C1C1]/30 mb-4" />
           <p className="text-[#C1C1C1] text-xs sm:text-sm">
-            Available for freelance projects and full-time opportunities
+            © Copyright 2024 - Michael Rodrigues. All rights reserved.
           </p>
         </div>
       </div>
