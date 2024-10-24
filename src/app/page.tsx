@@ -69,7 +69,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="skills" className="py-10 sm:py-16 lg:py-20">
+        <section id="skills" className="py-5 sm:py-10 lg:py-">
           <SkillsSection />
         </section>
 

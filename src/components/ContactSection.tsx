@@ -36,7 +36,7 @@ const ContactSection: React.FC = () => {
 
   return (
     <section
-      id="contato"
+      id="contact"
       className="bg-gradient-to-b from-[#2A2B30] to-[#232428] py-8 sm:py-12 md:py-16 lg:py-24"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

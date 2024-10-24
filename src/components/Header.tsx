@@ -4,7 +4,15 @@ import { useState, useEffect } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 
-function Header() {
+const menuItems = [
+  { label: "About", id: "about" },
+  { label: "Knowledge Tree", id: "knowledge-tree" },
+  { label: "Skills", id: "skills" },
+  { label: "Blog", id: "blog" },
+  { label: "Contact", id: "contact" },
+];
+
+const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -14,13 +22,13 @@ function Header() {
     };
   }, [isMenuOpen]);
 
-  const menuItems = [
-    "Sobre",
-    "Árvore do Conhecimento",
-    "Habilidades",
-    "Blog",
-    "Contato",
-  ];
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <header className="relative flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-4 text-white">
@@ -59,15 +67,15 @@ function Header() {
       )}
 
       <nav className="hidden md:flex flex-row gap-2 md:gap-4">
-        {menuItems.map((item) => (
-          <a
-            key={item}
-            href={`#${item.toLowerCase().replace(/ /g, "-")}`}
-            className="relative group text-white px-2 py-1"
+        {menuItems.map(({ label, id }) => (
+          <button
+            key={id}
+            onClick={() => scrollToSection(id)}
+            className="relative group text-white px-2 py-1 cursor-pointer"
           >
-            {item}
+            {label}
             <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#FFCF96] transition-all duration-300 group-hover:w-full" />
-          </a>
+          </button>
         ))}
       </nav>
 
@@ -86,22 +94,21 @@ function Header() {
       >
         <div className="py-4">
           <nav className="flex flex-col">
-            {menuItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(/ /g, "-")}`}
+            {menuItems.map(({ label, id }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
                 className="relative group text-white px-6 py-3 hover:bg-white/10 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
               >
-                {item}
+                {label}
                 <span className="absolute left-0 bottom-1 w-0 h-[2px] bg-[#FFCF96] transition-all duration-300 group-hover:w-full" />
-              </a>
+              </button>
             ))}
           </nav>
         </div>
       </div>
     </header>
   );
-}
+};
 
 export default Header;
