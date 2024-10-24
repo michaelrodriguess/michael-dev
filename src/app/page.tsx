@@ -75,7 +75,7 @@ export default function Home() {
 
         <section id="contato" className="bg-[#2A2B30] py-3">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#F96458]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-[#F96458]">
               Contact
             </h2>
             <div className="max-w-2xl mx-auto space-y-8">
