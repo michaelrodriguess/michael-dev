@@ -31,7 +31,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="relative flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-4 text-white">
+    <header className="relative flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-2 text-white">
       <div className="w-full md:w-auto flex items-center justify-between">
         <div className="flex items-center">
           <Image
@@ -41,9 +41,6 @@ const Header: React.FC = () => {
             height={48}
             className="rounded-full object-cover"
           />
-          <div className="ml-2 text-lg md:text-xl whitespace-nowrap">
-            Michael Rodrigues
-          </div>
         </div>
 
         <button
@@ -54,7 +51,7 @@ const Header: React.FC = () => {
           {isMenuOpen ? (
             <IoCloseOutline className="w-6 h-6" />
           ) : (
-            <CiMenuBurger className="w-6 h-6 " />
+            <CiMenuBurger className="w-6 h-6" />
           )}
         </button>
       </div>
@@ -80,17 +77,11 @@ const Header: React.FC = () => {
       </nav>
 
       <div
-        className={`
-          fixed md:hidden top-20 right-0
-          bg-[#2A2B30] shadow-xl z-40
-          transform transition-all duration-300 ease-in-out
-          rounded-l-xl
-          ${
-            isMenuOpen
-              ? "translate-x-0 opacity-100"
-              : "translate-x-full opacity-0"
-          }
-        `}
+        className={`fixed md:hidden top-20 right-0 bg-[#2A2B30] shadow-xl z-40 transform transition-all duration-300 ease-in-out rounded-l-xl ${
+          isMenuOpen
+            ? "translate-x-0 opacity-100"
+            : "translate-x-full opacity-0"
+        }`}
       >
         <div className="py-4">
           <nav className="flex flex-col">

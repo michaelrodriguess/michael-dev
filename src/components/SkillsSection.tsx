@@ -68,75 +68,77 @@ const SkillsSection = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-[#F96458]">
-        Skills
-      </h2>
-      <p className="text-gray-300 text-center mb-8 max-w-2xl mx-auto">
-        Throughout my journey as a developer, I have gained experience in
-        various technologies and tools. Here is an overview of my main
-        competencies:
-      </p>
-
-      <div className="bg-[#3F404A] rounded-xl p-4 sm:p-6 transition-all">
-        <div className="flex items-center gap-3 mb-4">
-          {React.createElement(skillsData[activeCategory].icon, {
-            className: "text-[#F96458] ",
-            size: 24,
-          })}
-          <Select
-            value={activeCategory}
-            onValueChange={(value: keyof typeof skillsData) =>
-              setActiveCategory(value)
-            }
-          >
-            <SelectTrigger className="bg-transparent border-none shadow-none hover:bg-[#34353A] transition-colors text-[#F96458] font-semibold text-lg md:text-xl w-auto ">
-              <SelectValue defaultValue={activeCategory}>
-                {skillsData[activeCategory].title}
-              </SelectValue>
-            </SelectTrigger>
-            <SelectContent className="bg-[#34353A] border-[#4F505A]">
-              {Object.entries(skillsData).map(([key, value]) => (
-                <SelectItem
-                  key={key}
-                  value={key}
-                  className="text-gray-300 hover:text-white hover:bg-[#4F505A] cursor-pointer"
-                >
-                  <div className="flex items-center gap-2">
-                    {React.createElement(value.icon, {
-                      size: 16,
-                    })}
-                    <span>{value.title}</span>
-                  </div>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <p className="text-gray-300 mb-6 text-sm md:text-base">
-          {skillsData[activeCategory].description}
+    <section id="skills" className="py-2 sm:py-5 lg:py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center text-[#F96458]">
+          Skills
+        </h2>
+        <p className="text-gray-300 text-center mb-10 max-w-3xl mx-auto">
+          Throughout my journey as a developer, I have gained experience in
+          various technologies and tools. Here is an overview of my main
+          competencies:
         </p>
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {skillsData[activeCategory].skills.map((skill, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center p-2 sm:p-3 bg-[#34353A] rounded-lg hover:bg-[#45464F] transition-colors"
+
+        <div className="bg-[#3F404A] rounded-xl p-6 sm:p-8 transition-all">
+          <div className="flex items-center gap-3 mb-6">
+            {React.createElement(skillsData[activeCategory].icon, {
+              className: "text-[#F96458]",
+              size: 30,
+            })}
+            <Select
+              value={activeCategory}
+              onValueChange={(value: keyof typeof skillsData) =>
+                setActiveCategory(value)
+              }
             >
-              <Image
-                src={skill.icon}
-                alt={skill.name}
-                width={24}
-                height={24}
-                className="w-6 h-6 sm:w-8 sm:h-8 mb-2"
-              />
-              <span className="text-xs sm:text-sm text-gray-300 text-center">
-                {skill.name}
-              </span>
-            </div>
-          ))}
+              <SelectTrigger className="bg-transparent border-none shadow-none hover:bg-[#34353A] transition-colors text-[#F96458] font-semibold text-lg md:text-xl w-auto">
+                <SelectValue defaultValue={activeCategory}>
+                  {skillsData[activeCategory].title}
+                </SelectValue>
+              </SelectTrigger>
+              <SelectContent className="bg-[#34353A] border-[#4F505A]">
+                {Object.entries(skillsData).map(([key, value]) => (
+                  <SelectItem
+                    key={key}
+                    value={key}
+                    className="text-gray-300 hover:text-white hover:bg-[#4F505A] cursor-pointer"
+                  >
+                    <div className="flex items-center gap-2">
+                      {React.createElement(value.icon, {
+                        size: 18,
+                      })}
+                      <span>{value.title}</span>
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <p className="text-gray-300 mb-8 text-sm md:text-base">
+            {skillsData[activeCategory].description}
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            {skillsData[activeCategory].skills.map((skill, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center p-3 sm:p-4 bg-[#34353A] rounded-lg hover:bg-[#45464F] transition-colors"
+              >
+                <Image
+                  src={skill.icon}
+                  alt={skill.name}
+                  width={28}
+                  height={28}
+                  className="w-8 h-8 sm:w-10 sm:h-10 mb-3"
+                />
+                <span className="text-xs sm:text-sm text-gray-300 text-center">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
