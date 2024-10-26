@@ -1,20 +1,35 @@
+// lib/projectData.ts
+
 export const projectData = {
-    nodes: [
-      { id: "JavaScript", group: 1 },
-      { id: "TypeScript", group: 1 },
-      { id: "React", group: 1 },
-      { id: "Next.js", group: 1 },
-      { id: "Three.js", group: 1 },
-      { id: "Projeto A", group: 2 },
-      { id: "Projeto B", group: 2 },
-    ],
-    links: [
-      { source: "JavaScript", target: "TypeScript" },
-      { source: "TypeScript", target: "React" },
-      { source: "React", target: "Next.js" },
-      { source: "JavaScript", target: "Three.js" },
-      { source: "React", target: "Projeto A" },
-      { source: "Three.js", target: "Projeto B" },
-      { source: "Next.js", target: "Projeto B" },
-    ]
-  };
+  nodes: [
+    {
+      id: "1",
+      title: "Projeto Alpha",
+      description: "Descrição do Projeto Alpha",
+      group: 1,
+    },
+    {
+      id: "2",
+      title: "Projeto Beta",
+      description: "Descrição do Projeto Beta",
+      group: 1,
+    },
+    {
+      id: "3",
+      title: "Projeto Gama",
+      description: "Descrição do Projeto Gama",
+      group: 2,
+    },
+    {
+      id: "4",
+      title: "Projeto Delta",
+      description: "Descrição do Projeto Delta",
+      group: 2,
+    },
+  ],
+  links: [
+    { source: "1", target: "2" },
+    { source: "2", target: "3" },
+    { source: "3", target: "4" },
+  ],
+};
