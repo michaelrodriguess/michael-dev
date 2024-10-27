@@ -3,10 +3,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { ProjectModal } from "./ProjectModal";
+import { ProjectDetails } from "./ProjectCard";
 
 interface Node {
   id: string;
   group: number;
+  project: ProjectDetails;
 }
 
 interface Link {
@@ -22,12 +25,14 @@ interface MultiverseData {
 const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(
+    null
+  );
 
   useEffect(() => {
     if (!mountRef.current || !isActive) return;
 
     const currentMount = mountRef.current;
-
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -50,6 +55,9 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
 
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
     const nodeObjects: { [key: string]: THREE.Mesh } = {};
     data.nodes.forEach((node) => {
       const geometry = new THREE.SphereGeometry(0.5, 32, 32);
@@ -64,6 +72,9 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
       );
       scene.add(sphere);
       nodeObjects[node.id] = sphere;
+
+      // Associando o ID do nó ao Mesh para referência no clique
+      sphere.userData = { project: node.project };
     });
 
     data.links.forEach((link) => {
@@ -95,6 +106,19 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
       renderer.setSize(currentMount.clientWidth, currentMount.clientHeight);
     };
 
+    const handleMouseClick = (event: MouseEvent) => {
+      mouse.x = (event.clientX / currentMount.clientWidth) * 2 - 1;
+      mouse.y = -(event.clientY / currentMount.clientHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(Object.values(nodeObjects));
+
+      if (intersects.length > 0) {
+        const project = intersects[0].object.userData.project;
+        setSelectedProject(project);
+      }
+    };
+
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsActive(false);
@@ -102,11 +126,13 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
     };
 
     window.addEventListener("resize", handleResize);
+    currentMount.addEventListener("click", handleMouseClick);
     window.addEventListener("keydown", handleKeyPress);
 
     return () => {
       currentMount.removeChild(renderer.domElement);
       window.removeEventListener("resize", handleResize);
+      currentMount.removeEventListener("click", handleMouseClick);
       window.removeEventListener("keydown", handleKeyPress);
     };
   }, [data, isActive]);
@@ -126,6 +152,12 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
           </button>
         )}
       </div>
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </div>
   );
 };
