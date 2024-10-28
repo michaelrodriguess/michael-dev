@@ -16,12 +16,18 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isOn, onToggle }) => {
   return (
     <div
       onClick={onToggle}
-      className="relative w-20 h-10 flex items-center bg-[#333] cursor-pointer rounded-full p-1"
+      className={`relative ${
+        isOn ? "w-36" : "w-48"
+      } h-12 flex items-center p-1 cursor-pointer rounded-full transition-all duration-300 ${
+        isOn ? "bg-[#FFC680]" : "bg-[#333]"
+      }`}
+      role="button"
+      aria-pressed={isOn}
     >
       <motion.div
-        className="absolute w-8 h-8 bg-[#FFC680] rounded-full"
+        className="absolute w-10 h-10 bg-[#FF8A4B] rounded-full"
         animate={{
-          x: isOn ? 44 : 4,
+          x: isOn ? 90 : 4,
         }}
         transition={{
           type: "spring",
@@ -29,14 +35,16 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isOn, onToggle }) => {
           damping: 30,
         }}
       />
-      <div className="w-full h-full flex items-center justify-between px-2 text-xs font-medium">
-        <span className={`${isOn ? "opacity-50" : "opacity-100"} text-white`}>
-          PRO
+      {!isOn && (
+        <span className="absolute left-14 text-white font-medium opacity-100">
+          Knowledge Tree
         </span>
-        <span className={`${isOn ? "opacity-100" : "opacity-50"} text-white`}>
-          KNOW
+      )}
+      {isOn && (
+        <span className="absolute left-6 text-white font-medium opacity-100">
+          Projects
         </span>
-      </div>
+      )}
     </div>
   );
 };
@@ -70,7 +78,7 @@ export const ContentSections = () => {
             </motion.div>
           ) : (
             <motion.div
-              key="products"
+              key="projects"
               initial={{ opacity: 0, x: -200 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 200 }}
