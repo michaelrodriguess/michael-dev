@@ -42,7 +42,7 @@ export const projectData = {
           "Portfolio pessoal desenvolvido com Next.js e Tailwind",
         description:
           "Um portfolio digital moderno e responsivo desenvolvido com as mais recentes tecnologias web. Inclui seções para projetos, habilidades e uma árvore de conhecimento interativa.",
-        image: "/portfolio.png",
+        image: "/lore1.jpg",
         githubUrl: "https://github.com/username/portfolio",
         liveUrl: "https://portfolio.dev",
         technologies: [
@@ -73,7 +73,7 @@ export const projectData = {
           "Portfolio pessoal desenvolvido com Next.js e Tailwind",
         description:
           "Um portfolio digital moderno e responsivo desenvolvido com as mais recentes tecnologias web. Inclui seções para projetos, habilidades e uma árvore de conhecimento interativa.",
-        image: "/portfolio.png",
+        image: "/lore2.jpg",
         githubUrl: "https://github.com/username/portfolio",
         liveUrl: "https://portfolio.dev",
         technologies: [
