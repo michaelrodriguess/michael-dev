@@ -56,9 +56,9 @@ export const ContentSections = () => {
   );
 
   return (
-    <div className="relative min-h-screen bg-[#2E2F33]">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-center my-8">
+    <section className="bg-[#2E2F33]">
+      <div className="max-w-screen-lg mx-auto px-4 py-8">
+        <div className="flex justify-center mb-8">
           <ToggleSwitch
             isOn={isKnowledgeTree}
             onToggle={() => setIsKnowledgeTree(!isKnowledgeTree)}
@@ -83,7 +83,7 @@ export const ContentSections = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 200 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-6"
             >
               {projectData.nodes.map((project) => (
                 <ProjectCard
@@ -105,7 +105,7 @@ export const ContentSections = () => {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </section>
   );
 };
 
