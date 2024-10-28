@@ -6,7 +6,7 @@ import { IoCloseOutline } from "react-icons/io5";
 
 const menuItems = [
   { label: "About", id: "about" },
-  { label: "Knowledge Tree", id: "knowledge-tree" },
+  { label: "Projects", id: "content-section" },
   { label: "Skills", id: "skills" },
   { label: "Blog", id: "blog" },
   { label: "Contact", id: "contact" },

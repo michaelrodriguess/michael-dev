@@ -6,6 +6,10 @@ import { ProjectCard, type ProjectDetails } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
 import { projectData } from "../lib/projectData";
 import KnowledgeTreeSection from "./KnowledgeTreeSection";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 interface ToggleSwitchProps {
   isOn: boolean;
@@ -55,8 +59,19 @@ export const ContentSections = () => {
     null
   );
 
+  const isMobile = window.innerWidth < 768;
+
+  const pagination = {
+    clickable: true,
+    renderBullet: (index: number, className: string) => {
+      return `
+        <span class="${className} w-5 h-5 flex items-center justify-center rounded-full text-black text-xs opacity-100 bg-[rgba(0,0,0,0.2)] mx-1">
+        </span>`;
+    },
+  };
+
   return (
-    <section className="bg-[#2E2F33]">
+    <section id="content-section" className="bg-[#2E2F33]">
       <div className="max-w-screen-lg mx-auto px-4 py-8">
         <div className="flex justify-center mb-8">
           <ToggleSwitch
@@ -83,15 +98,34 @@ export const ContentSections = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 200 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-6"
             >
-              {projectData.nodes.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project.project}
-                  onClick={setSelectedProject}
-                />
-              ))}
+              {isMobile ? (
+                <Swiper
+                  pagination={pagination}
+                  modules={[Pagination]}
+                  className="mySwiper"
+                  slidesPerView={1}
+                >
+                  {projectData.nodes.map((project) => (
+                    <SwiperSlide key={project.id}>
+                      <ProjectCard
+                        project={project.project}
+                        onClick={setSelectedProject}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-6">
+                  {projectData.nodes.map((project) => (
+                    <ProjectCard
+                      key={project.id}
+                      project={project.project}
+                      onClick={setSelectedProject}
+                    />
+                  ))}
+                </div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>
