@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ProjectCard, type ProjectDetails } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
@@ -58,8 +58,18 @@ export const ContentSections = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(
     null
   );
+  const [isMobile, setIsMobile] = useState(false);
 
-  const isMobile = window.innerWidth < 768;
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const pagination = {
     clickable: true,

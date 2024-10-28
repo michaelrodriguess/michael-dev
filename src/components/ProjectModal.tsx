@@ -32,10 +32,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
-        className="bg-[#2E2F33] rounded-xl max-w-4xl w-full relative"
+        className="bg-[#2E2F33] rounded-xl max-w-sm md:max-w-4xl w-full max-h-[80vh] overflow-y-auto relative"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative h-48 overflow-hidden rounded-t-xl">
+        <div className="relative h-48 md:h-64 overflow-hidden rounded-t-xl">
           <Image
             src={project.image}
             alt={project.title}
@@ -52,10 +52,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           </button>
         </div>
 
-        <div className="p-8">
-          <div className="flex items-start justify-between mb-6">
+        <div className="p-6 md:p-8">
+          <div className="flex items-start justify-between mb-4 md:mb-6">
             <div>
-              <h2 className="text-3xl font-bold text-white mb-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">
                 {project.title}
               </h2>
               <span
@@ -66,7 +66,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 {project.status}
               </span>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-2 md:gap-3">
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}
@@ -90,9 +90,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
-              <h3 className="text-lg font-semibold text-[#FFC680] mb-4">
+              <h3 className="text-lg font-semibold text-[#FFC680] mb-3">
                 Sobre o Projeto
               </h3>
               <p className="text-gray-300 leading-relaxed mb-4">
@@ -111,7 +111,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-[#FFC680] mb-4">
+              <h3 className="text-lg font-semibold text-[#FFC680] mb-3">
                 Principais Features
               </h3>
               <ul className="space-y-2">
@@ -129,7 +129,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold text-[#FFC680] mb-4">
+            <h3 className="text-lg font-semibold text-[#FFC680] mb-3">
               Tecnologias Utilizadas
             </h3>
             <div className="flex flex-wrap gap-3">
