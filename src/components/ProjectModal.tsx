@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   X,
@@ -6,8 +6,13 @@ import {
   Globe,
   Calendar,
   Terminal,
-  CheckCircle,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-cards";
+import { EffectCards, Navigation } from "swiper/modules";
 import { getStatusColor, ProjectDetails } from "./ProjectCard";
 import Image from "next/image";
 
@@ -20,6 +25,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   project,
   onClose,
 }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSlideChange = (swiper: any) => {
+    setCurrentIndex(swiper.activeIndex);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -32,34 +44,64 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
-        className="bg-[#2E2F33] rounded-xl max-w-sm md:max-w-4xl w-full max-h-[80vh] overflow-y-auto relative"
+        className="bg-[#2E2F33] rounded-xl w-full max-w-md md:max-w-2xl lg:max-w-4xl mx-4 overflow-hidden relative"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative h-48 md:h-64 overflow-hidden rounded-t-xl">
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={400}
-            height={400}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#2E2F33] to-transparent" />
+        <div className="relative p-8 md:p-12 overflow-hidden rounded-t-xl bg-gradient-to-b from-gray-900 to-[#2E2F33]">
+          <Swiper
+            effect="cards"
+            grabCursor={true}
+            modules={[EffectCards, Navigation]}
+            className="h-[250px] md:h-[300px] lg:h-[350px] w-full mx-auto"
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+            onSlideChange={handleSlideChange}
+          >
+            {project.images.map((image, index) => (
+              <SwiperSlide key={index} className="rounded-xl overflow-hidden">
+                <div className="relative w-full h-full">
+                  <Image
+                    src={image}
+                    alt={`Project Image ${index + 1}`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-xl transition-transform duration-300 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30" />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {currentIndex > 0 && (
+            <div className="swiper-button-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-3 shadow hover:bg-gray-700 transition z-10 hidden md:block">
+              <ChevronLeft size={24} />
+            </div>
+          )}
+          {currentIndex < project.images.length - 1 && (
+            <div className="swiper-button-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-3 shadow hover:bg-gray-700 transition z-10 hidden md:block">
+              <ChevronRight size={24} />
+            </div>
+          )}
+
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full bg-black bg-opacity-50 text-white hover:bg-opacity-75 transition-all duration-200"
+            className="absolute top-1 right-1 p-2 rounded-full bg-black bg-opacity-50 text-white hover:bg-opacity-75 transition-all duration-200 z-10"
           >
             <X size={20} />
           </button>
         </div>
 
-        <div className="p-6 md:p-8">
-          <div className="flex items-start justify-between mb-4 md:mb-6">
+        <div className="p-6 md:p-8 space-y-6">
+          <div className="flex items-start justify-between">
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2">
                 {project.title}
               </h2>
               <span
-                className={`px-3 py-1 rounded-full text-sm ${getStatusColor(
+                className={`px-3 py-1 rounded-full text-xs md:text-sm ${getStatusColor(
                   project.status
                 )}`}
               >
@@ -90,59 +132,30 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <h3 className="text-lg font-semibold text-[#FFC680] mb-3">
-                Sobre o Projeto
-              </h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                {project.description}
-              </p>
+          <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+            {project.description}
+          </p>
 
-              <div className="flex items-center gap-2 text-gray-400 mb-4">
-                <Calendar size={16} />
-                <span>
-                  {new Date(project.startDate).toLocaleDateString()} -
-                  {project.endDate
-                    ? new Date(project.endDate).toLocaleDateString()
-                    : "Presente"}
-                </span>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-[#FFC680] mb-3">
-                Principais Features
-              </h3>
-              <ul className="space-y-2">
-                {project.features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center gap-2 text-gray-300"
-                  >
-                    <CheckCircle size={16} className="text-[#FFC680]" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="flex items-center gap-2 text-gray-400 text-sm">
+            <Calendar size={16} />
+            <span>
+              {new Date(project.startDate).toLocaleDateString()} -{" "}
+              {project.endDate
+                ? new Date(project.endDate).toLocaleDateString()
+                : "Presente"}
+            </span>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold text-[#FFC680] mb-3">
-              Tecnologias Utilizadas
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {project.technologies.map((tech, index) => (
-                <div
-                  key={index}
-                  className="px-4 py-2 bg-[#333] rounded-lg flex items-center gap-2"
-                >
-                  <Terminal size={16} className="text-[#FFC680]" />
-                  <span className="text-white">{tech.name}</span>
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-1 px-3 py-1 bg-[#333] rounded-lg text-xs sm:text-sm"
+              >
+                <Terminal size={16} className="text-[#FFC680]" />{" "}
+                <span className="text-white">{tech.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </motion.div>

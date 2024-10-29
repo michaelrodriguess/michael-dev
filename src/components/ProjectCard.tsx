@@ -8,7 +8,7 @@ export interface ProjectDetails {
   title: string;
   shortDescription: string;
   description: string;
-  image: string;
+  images: string[];
   githubUrl: string;
   liveUrl?: string;
   technologies: { name: string }[];
@@ -52,10 +52,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       className="bg-[#333] rounded-xl overflow-hidden shadow-lg border border-[#FFC680] hover:shadow-2xl transition-all duration-300"
       onClick={() => onClick(project)}
     >
-      {project.image && (
+      {project.images && (
         <div className="relative h-48 overflow-hidden">
           <Image
-            src={project.image}
+            src={project.images[0]}
             alt={project.title}
             width={400}
             height={400}
