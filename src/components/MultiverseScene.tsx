@@ -137,21 +137,21 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
     };
   }, [data, isActive]);
 
-  const handleActivate = () => setIsActive(true);
-
   return (
     <div className="relative w-full h-full">
       <div ref={mountRef} style={{ width: "100%", height: "100%" }} />
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 mb-4">
-        {!isActive && (
-          <button
-            className="bg-gradient-to-r from-[#86AB89] to-[#A28B55] text-xl font-semibold py-2 px-6 rounded-lg shadow-lg transform transition-transform hover:scale-105 hover:shadow-xl hover:underline focus:outline-none"
-            onClick={handleActivate}
-          >
-            🌌 Explore the Knowledge Tree
-          </button>
-        )}
-      </div>
+      {!isActive && (
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
+          <div className="p-2 rounded-xl shadow-md transform transition-all duration-300 hover:scale-105">
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-wider">
+              🚧 Work in Progress 🚀
+            </h2>
+            <p className="mt-1 text-xs text-white/70 italic">
+              Something amazing is coming soon!
+            </p>
+          </div>
+        </div>
+      )}
       {selectedProject && (
         <ProjectModal
           project={selectedProject}

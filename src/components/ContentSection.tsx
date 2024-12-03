@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ProjectCard, type ProjectDetails } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
-import { projectData } from "../lib/projectData";
+import { projectData } from "../_lib/projectData";
 import KnowledgeTreeSection from "./KnowledgeTreeSection";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

@@ -1,5 +1,5 @@
 import React from "react";
-import { projectData } from "../lib/projectData";
+import { projectData } from "../_lib/projectData";
 import MultiverseScene from "./MultiverseScene";
 
 export default function KnowledgeTreeSection() {
