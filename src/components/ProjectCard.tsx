@@ -95,7 +95,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="flex items-center justify-between text-sm text-gray-400">
           <div className="flex items-center gap-2">
             <Calendar size={16} />
-            <span>{new Date(project.startDate).getFullYear()}</span>
+            <span>{project.startDate}</span>
           </div>
           <button className="text-[#FFC680] hover:text-[#ffb766] transition-colors duration-200">
             Ver detalhes →
