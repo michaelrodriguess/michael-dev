@@ -7,10 +7,9 @@ export const projectData = {
       group: 1,
       project: {
         title: "Portfolio",
-        shortDescription:
-          "Portfólio onde compartilho um pouco da minha jornada.",
+        shortDescription: "Portfolio where I share a little of my journey..",
         description:
-          "Um portfolio digital moderno e responsivo desenvolvido com as mais recentes tecnologias web. Inclui seções para projetos, habilidades e uma árvore de conhecimento interativa.",
+          "A modern, responsive digital portfolio developed using the latest web technologies. Includes sections for projects, skills and an interactive knowledge tree.",
         images: [
           "/portfolio.png",
           "/lore1.jpg",
@@ -28,7 +27,7 @@ export const projectData = {
         ],
         startDate: "2024-01-01",
         endDate: "2024-03-15",
-        status: "Concluído",
+        status: "Completed",
       } as ProjectDetails,
     },
     // {
