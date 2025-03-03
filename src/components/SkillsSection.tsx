@@ -25,7 +25,6 @@ const SkillsSection = () => {
         { name: "C", icon: "/icons/c-1.svg" },
         { name: "C++", icon: "/icons/c.svg" },
         { name: "Go", icon: "/icons/go-8.svg" },
-        { name: "Java", icon: "/icons/java.svg" },
         { name: "Kotlin", icon: "/icons/kotlin-1.svg" },
         { name: "JavaScript", icon: "/icons/logo-javascript.svg" },
         { name: "Node.js", icon: "/icons/nodejs-1.svg" },
