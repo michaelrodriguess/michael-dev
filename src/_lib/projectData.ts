@@ -6,7 +6,7 @@ export const projectData = {
       id: "1",
       group: 1,
       project: {
-        title: "Portfolio",
+        title: "Personal Portfolio",
         shortDescription: "Portfolio where I share a little of my journey...",
         description:
           "A modern, responsive digital portfolio developed using the latest web technologies. Includes sections for projects, skills and an interactive knowledge tree.",
