@@ -9,7 +9,7 @@ export const projectData = {
         title: "Personal Portfolio",
         shortDescription: "A digital portfolio that showcases my journey and expertise in software development.",
         description:
-          "A modern, responsive digital portfolio developed using the latest web technologies. Includes sections for projects, skills and an interactive knowledge tree.",
+          "A modern and responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. It highlights my personal projects, skills, and an interactive knowledge tree. This portfolio is designed to reflect my journey as a developer and the impactful projects I've worked on.",
         images: [
           "/portfolio.png",
           "/lore1.jpg",
