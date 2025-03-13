@@ -139,9 +139,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           <div className="flex items-center gap-2 text-gray-400 text-sm">
             <Calendar size={16} />
             <span>
-              {new Date(project.startDate).toLocaleDateString()} -{" "}
+              {new Date(`${project.startDate}T00:00:00`).toLocaleDateString("pt-BR", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}{" "}
+              -{" "}
               {project.endDate
-                ? new Date(project.endDate).toLocaleDateString()
+                ? new Date(`${project.endDate}T00:00:00`).toLocaleDateString("pt-BR", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })
                 : "Presente"}
             </span>
           </div>
