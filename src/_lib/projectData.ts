@@ -11,10 +11,10 @@ export const projectData = {
         description:
           "A modern and responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. It highlights my personal projects, skills, and an interactive knowledge tree. This portfolio is designed to reflect my journey as a developer and the impactful projects I've worked on.",
         images: [
-          "/portfolio.png",
-          "/lore1.jpg",
-          "/portfolio.png",
-          "/lore1.jpg",
+          "/personal1.png",
+          "/personal2.png",
+          "/personal3.png",
+          "/personal4.png",
         ],
         githubUrl: "https://github.com/michaelrodriguess/michael-dev",
         liveUrl: "https://michaelrodrigues.dev",
