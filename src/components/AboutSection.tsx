@@ -14,7 +14,7 @@ const AboutSection = () => {
               Hi, I&apos;m Michael Rodrigues
             </h2>
             <p className="text-base sm:text-lg mb-8 leading-relaxed text-[#C1C1C1] font-light">
-              A passionate software developer with 4 years of experience. Driven
+              A passionate software developer with 5 years of experience. Driven
               by curiosity and fueled by caffeine, I love turning ideas into
               reality. Whether it&apos;s crafting efficient code or solving
               complex problems, my goal is to create impactful digital
