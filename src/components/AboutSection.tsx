@@ -74,7 +74,7 @@ const AboutSection = () => {
             </div>
             <blockquote className="border-l-4 border-[#FA6559] pl-6 italic text-lg font-semibold text-[#A8DADC] mb-6 mt-10">
               <p className="mb-2">
-                "Education is the most powerful weapon you can use to change the world."
+                &quot;Education is the most powerful weapon you can use to change the world.&quot;
               </p>
               <span className="block mt-2 text-sm text-[#FA6559]">
                 — Nelson Mandela
