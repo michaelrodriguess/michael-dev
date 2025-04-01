@@ -15,7 +15,12 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Michael Rodrigues - Software Developer",
-  description: "",
+  description: "Michael Rodrigues - Software Developer - Back-end Developer",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+    shortcut: "/favicon.ico"
+  }
 };
 
 export default function RootLayout({
