@@ -1,5 +1,7 @@
 "use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
@@ -14,6 +16,7 @@ const menuItems = [
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const Router = useRouter();
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
@@ -29,6 +32,10 @@ const Header: React.FC = () => {
       setIsMenuOpen(false);
     }
   };
+
+  const redirectToBlog = () => {
+    Router.push("/blog");
+  }
 
   return (
     <header className="relative flex flex-col md:flex-row items-center justify-between px-4 md:px-6 py-2 text-white">
@@ -67,7 +74,14 @@ const Header: React.FC = () => {
         {menuItems.map(({ label, id }) => (
           <button
             key={id}
-            onClick={() => scrollToSection(id)}
+            onClick={() => {
+
+              if (label == "Blog") {
+                redirectToBlog();
+              } else {
+                scrollToSection(id);
+              }
+            }}
             className="relative group text-white px-2 py-1 cursor-pointer"
           >
             {label}
