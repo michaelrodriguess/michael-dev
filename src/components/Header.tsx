@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
+import { useRouter, usePathname } from "next/navigation";
 
 const menuItems = [
   { label: "About", id: "about" },
@@ -14,6 +15,8 @@ const menuItems = [
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathName = usePathname();
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
@@ -23,10 +26,21 @@ const Header: React.FC = () => {
   }, [isMenuOpen]);
 
   const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setIsMenuOpen(false);
+    if (pathName == "/blog") {
+      router.push("/");
+      setTimeout(() => {
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+          setIsMenuOpen(false);
+        }
+      }, 500);
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        setIsMenuOpen(false);
+      }    
     }
   };
 
@@ -67,7 +81,13 @@ const Header: React.FC = () => {
         {menuItems.map(({ label, id }) => (
           <button
             key={id}
-            onClick={() => scrollToSection(id)}
+            onClick={() => {
+              if (label == "Blog") {
+                router.push("/blog");
+              } else if (label != "Blog") {
+              scrollToSection(id)}
+
+            }}
             className="relative group text-white px-2 py-1 cursor-pointer"
           >
             {label}
