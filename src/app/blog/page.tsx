@@ -162,12 +162,7 @@ export default function BlogPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <Button
-                className="bg-[#1F2023] hover:bg-[#3A3B3F] text-white p-2 border border-[#3A3B3F]"
-                variant="ghost"
-              >
-                <Search className="h-5 w-5" />
-              </Button>
+
             </div>
           </div>
         </section>
