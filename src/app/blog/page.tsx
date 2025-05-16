@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowUpRight, Clock, Loader2, Search } from "lucide-react"
+import { ArrowUpRight, Clock, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -200,22 +200,32 @@ function ArticleGrid({ articles }: { articles: Post[] }) {
   )
 }
 
+
 function ArticleCard({ article }: { article: Post }) {
+  const hasImage = article.image && !article.image.includes("placeholder.svg")
+
   return (
     <Link href={`/blog/${article.id}`} className="group">
-      <div className="flex flex-col h-full overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md">
-        <div className="relative h-48 sm:h-56 md:h-64 w-full overflow-hidden">
-          <Image
-            src={article.image}
-            alt=""
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-        <div className="p-4 flex flex-col gap-2">
+      <div className="flex flex-col h-full overflow-hidden rounded-xl border border-white/5 bg-[#1E1F23] text-white shadow transition-all hover:shadow-md hover:border-white/10">
+        {hasImage ? (
+          <div className="relative h-48 sm:h-56 md:h-64 w-full overflow-hidden">
+            <Image
+              src={article.image}
+              alt=""
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        ) : (
+          <div className="h-48 sm:h-56 md:h-64 w-full flex items-center justify-center bg-gradient-to-br from-zinc-700 to-zinc-900 text-white/50 text-sm italic">
+            Sem imagem disponível
+          </div>
+        )}
+
+        <div className="p-4 flex flex-col gap-3">
           <h3 className="text-lg font-semibold leading-tight line-clamp-2">{article.title}</h3>
-          <p className="text-sm text-muted-foreground line-clamp-3">{article.excerpt}</p>
-          <div className="flex flex-wrap items-center text-xs gap-2 text-muted-foreground">
+          <p className="text-sm text-white/70 line-clamp-3">{article.excerpt}</p>
+          <div className="flex flex-wrap items-center text-xs gap-2 text-white/50">
             <Clock className="h-4 w-4" />
             <span>{article.readTime} min</span>
             <span>•</span>
