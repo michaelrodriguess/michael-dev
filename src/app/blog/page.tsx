@@ -40,7 +40,12 @@ export default function BlogPage() {
 
         const parsedPosts = Array.isArray(items) ? items : [items];
 
-        const postsData: Post[] = parsedPosts.map((item: any) => ({
+        const postsData: Post[] = parsedPosts.map((item: {
+          title: string;
+          link: string;
+          pubDate: string;
+          "content:encoded"?: string;
+        }) => ({
           title: item.title || "Sem título",
           link: item.link,
           pubDate: new Date(item.pubDate).toLocaleDateString("pt-BR"),
