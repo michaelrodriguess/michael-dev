@@ -166,7 +166,24 @@ export default function ArticlePage() {
               <span>{post.readTime} min de leitura</span>
             </div>
             <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon"><Share2 className="h-5 w-5" /></Button>
+              {/* <Button variant="ghost" size="icon"><Share2 className="h-5 w-5" /></Button> */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href)
+                    .then(() => {
+                      console.log("Link copiado!");
+                      // você pode mostrar um toast ou algo visual se quiser
+                    })
+                    .catch((err) => {
+                      console.error("Erro ao copiar link: ", err);
+                    });
+                }}
+              >
+                <Share2 className="h-5 w-5" />
+              </Button>
+
             </div>
           </div>
         </div>
