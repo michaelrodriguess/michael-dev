@@ -122,7 +122,7 @@ export default function ArticlePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-[#2E2F33] flex items-center justify-center">
         <Loader2 className="h-10 w-10 animate-spin text-primary" />
       </div>
     )
@@ -136,7 +136,7 @@ export default function ArticlePage() {
         <Button asChild>
           <Link href="/blog">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Voltar ao Blog
+            Back to Blog
           </Link>
         </Button>
       </div>
@@ -147,13 +147,11 @@ export default function ArticlePage() {
     <div className="w-full bg-[#2E2F33] text-white">
       <Header />
 
-      {/* Barra de progresso */}
       <div
         className="fixed top-0 left-0 right-0 h-1 z-50 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 origin-left"
         style={{ transform: `scaleX(${scrollProgress / 100})` }}
       />
 
-      {/* Header interno */}
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between py-4">
           <Button variant="ghost" size="sm" asChild>
