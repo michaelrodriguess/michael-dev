@@ -132,8 +132,8 @@ export default function ArticlePage() {
   if (!post) {
     return (
       <div className="container py-20 text-center">
-        <h1 className="text-3xl font-bold mb-4">Artigo não encontrado</h1>
-        <p className="mb-8">O artigo que você procura não existe ou foi removido.</p>
+        <h1 className="text-3xl font-bold mb-4">Article not found</h1>
+        <p className="mb-8">The article you are looking for does not exist or has been removed.</p>
         <Button asChild>
           <Link href="/blog">
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -153,39 +153,38 @@ export default function ArticlePage() {
         style={{ transform: `scaleX(${scrollProgress / 100})` }}
       />
 
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between py-4">
+      <header className="sticky w-full top-0 z-40 w-full border-b bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70">
+        <div className="flex h-16 items-center justify-between px-6 py-3">
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/blog">
-              <ArrowLeft className="mr-2 h-4 w-4" />
+            <Link href="/blog" className="flex items-center text-base font-medium hover:text-primary transition-colors">
+              <ArrowLeft className="mr-2 h-5 w-5" />
               Back to Blog
             </Link>
           </Button>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Clock className="h-4 w-4" />
-              <span>{post.readTime} min de leitura</span>
+
+          <div className="flex items-center gap-6 min-w-[180px] justify-end">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground select-none">
+              <Clock className="h-5 w-5" />
+              <span>{post.readTime} min of reading</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => {
-                  navigator.clipboard.writeText(window.location.href)
-                    .then(() => {
-                      toast.success("Link copiado!");
-                    })
-                    .catch(() => {
-                      toast.error("Erro ao copiar link.");
-                    });
-                }}
-              >
-                <Share2 className="h-5 w-5" />
-              </Button>
-            </div>
+
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-primary/20 transition-colors rounded"
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href)
+                  .then(() => toast.success("Link copied!"))
+                  .catch(() => toast.error("Error copying link."));
+              }}
+              aria-label="Copy page link"
+            >
+              <Share2 className="h-6 w-6" />
+            </Button>
           </div>
         </div>
       </header>
+
 
       <main className="container py-10">
         <article className="mx-auto max-w-3xl">          
