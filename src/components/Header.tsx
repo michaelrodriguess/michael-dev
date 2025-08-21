@@ -4,19 +4,21 @@ import { useState, useEffect } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 import { useRouter, usePathname } from "next/navigation";
-
-const menuItems = [
-  { label: "About", id: "about" },
-  { label: "Projects", id: "content-section" },
-  { label: "Skills", id: "skills" },
-  { label: "Blog", id: "blog" },
-  { label: "Contact", id: "contact" },
-];
+import { LanguageSelector, useLanguage } from "@/_i18n";
 
 const Header: React.FC = () => {
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const pathName = usePathname();
+
+  const menuItems = [
+    { label: t("about"), id: "about" },
+    { label: t("projects"), id: "content-section" },
+    { label: t("skills"), id: "skills" },
+    { label: t("blog"), id: "blog" },
+    { label: t("contact"), id: "contact" },
+  ];
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
@@ -26,7 +28,7 @@ const Header: React.FC = () => {
   }, [isMenuOpen]);
 
   const scrollToSection = (id: string) => {
-    if (pathName == "/blog") {
+    if (pathName === "/blog") {
       router.push("/");
       setTimeout(() => {
         const section = document.getElementById(id);
@@ -40,7 +42,7 @@ const Header: React.FC = () => {
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
         setIsMenuOpen(false);
-      }    
+      }
     }
   };
 
@@ -63,7 +65,7 @@ const Header: React.FC = () => {
           aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
         >
           {isMenuOpen ? (
-            <IoCloseOutline className="w-6 h-6" />
+            <IoCloseOutline className="w-8 h-8" />
           ) : (
             <CiMenuBurger className="w-6 h-6" />
           )}
@@ -77,45 +79,51 @@ const Header: React.FC = () => {
         />
       )}
 
-      <nav className="hidden md:flex flex-row gap-2 md:gap-4">
-        {menuItems.map(({ label, id }) => (
-          <button
-            key={id}
-            onClick={() => {
-              if (label == "Blog") {
-                router.push("/blog");
-              } else if (label != "Blog") {
-              scrollToSection(id)}
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex items-center gap-6">
+        <nav className="flex flex-row gap-4">
+          {menuItems.map(({ label, id }) => (
+            <button
+              key={id}
+              onClick={() => {
+                if (label === t("blog")) {
+                  router.push("/blog");
+                } else {
+                  scrollToSection(id);
+                }
+              }}
+              className="relative group text-white px-2 py-1 cursor-pointer"
+            >
+              {label}
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#FFCF96] transition-all duration-300 group-hover:w-full" />
+            </button>
+          ))}
+        </nav>
+        <div className="border-l border-gray-500 h-6" />
+        <LanguageSelector />
+      </div>
 
-            }}
-            className="relative group text-white px-2 py-1 cursor-pointer"
-          >
-            {label}
-            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#FFCF96] transition-all duration-300 group-hover:w-full" />
-          </button>
-        ))}
-      </nav>
-
+      {/* Mobile Menu (Off-canvas) */}
       <div
-        className={`fixed md:hidden top-20 right-0 bg-[#2A2B30] shadow-xl z-40 transform transition-all duration-300 ease-in-out rounded-l-xl ${
-          isMenuOpen
-            ? "translate-x-0 opacity-100"
-            : "translate-x-full opacity-0"
+        className={`fixed md:hidden top-0 right-0 w-64 h-full bg-[#2A2B30] shadow-xl z-40 transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="py-4">
-          <nav className="flex flex-col">
+        <div className="flex flex-col h-full pt-24">
+          <nav className="flex flex-col px-2">
             {menuItems.map(({ label, id }) => (
               <button
                 key={id}
                 onClick={() => scrollToSection(id)}
-                className="relative group text-white px-6 py-3 hover:bg-white/10 transition-colors"
+                className="relative group text-white px-4 py-3 hover:bg-white/10 transition-colors text-left rounded-md"
               >
                 {label}
-                <span className="absolute left-0 bottom-1 w-0 h-[2px] bg-[#FFCF96] transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </nav>
+          <div className="mt-auto p-6 border-t border-gray-700">
+            <LanguageSelector />
+          </div>
         </div>
       </div>
     </header>
