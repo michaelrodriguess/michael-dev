@@ -1,8 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/_i18n";
 
 const AboutSection = () => {
+
+    const { t } = useLanguage();
+  
   return (
     <section
       id="about"
@@ -20,7 +24,7 @@ const AboutSection = () => {
               Hi, I&apos;m Michael Rodrigues
             </h2>
             <p className="text-base sm:text-lg mb-8 leading-relaxed text-[#C1C1C1] font-light">
-              With over 5 years of experience in software development, I specialize in crafting efficient and scalable solutions. My passion for technology drives me to constantly explore new possibilities and create innovative digital experiences.
+              {t ("With over 5 years of experience in software development, I specialize in crafting efficient and scalable solutions. My passion for technology drives me to constantly explore new possibilities and create innovative digital experiences.")}
             </p>
             <div className="space-y-6">
                 <h3 className="text-2xl font-semibold text-[#FFC680]">What I Do</h3>

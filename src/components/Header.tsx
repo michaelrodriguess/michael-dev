@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { CiMenuBurger } from "react-icons/ci";
-import { IoCloseOutline } from "react-icons/io5";
 import { useRouter, usePathname } from "next/navigation";
 import { LanguageSelector, useLanguage } from "@/_i18n";
 
@@ -59,17 +57,7 @@ const Header: React.FC = () => {
           />
         </div>
 
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-white text-2xl p-2 hover:bg-white/10 rounded-lg transition-colors z-50"
-          aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
-        >
-          {isMenuOpen ? (
-            <IoCloseOutline className="w-8 h-8" />
-          ) : (
-            <CiMenuBurger className="w-6 h-6" />
-          )}
-        </button>
+        
       </div>
 
       {isMenuOpen && (
@@ -103,7 +91,6 @@ const Header: React.FC = () => {
         <LanguageSelector />
       </div>
 
-      {/* Mobile Menu (Off-canvas) */}
       <div
         className={`fixed md:hidden top-0 right-0 w-64 h-full bg-[#2A2B30] shadow-xl z-40 transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -121,9 +108,6 @@ const Header: React.FC = () => {
               </button>
             ))}
           </nav>
-          <div className="mt-auto p-6 border-t border-gray-700">
-            <LanguageSelector />
-          </div>
         </div>
       </div>
     </header>
