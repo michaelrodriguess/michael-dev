@@ -18,8 +18,8 @@ const LanguageSelector = () => {
     >
       <Globe className="h-5 w-5" />
       <span>{language.toUpperCase()}</span>
-      <span className="absolute left-0 bottom-2 w-0 h-[2px] bg-[#FFCF96] transition-all duration-300 group-hover:w-full" />
-    </Button>
+      <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#FFCF96] transition-all duration-300 group-hover:w-full" />
+      </Button>
   );
 };
 
