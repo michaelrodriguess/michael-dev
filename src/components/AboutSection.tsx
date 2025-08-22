@@ -21,13 +21,13 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-8 bg-gradient-to-r from-[#F96458] to-[#FFC680] text-transparent bg-clip-text tracking-wide font-serif">
-              Hi, I&apos;m Michael Rodrigues
+              {t("greeting")}
             </h2>
             <p className="text-base sm:text-lg mb-8 leading-relaxed text-[#C1C1C1] font-light">
               {t ("With over 5 years of experience in software development, I specialize in crafting efficient and scalable solutions. My passion for technology drives me to constantly explore new possibilities and create innovative digital experiences.")}
             </p>
             <div className="space-y-6">
-                <h3 className="text-2xl font-semibold text-[#FFC680]">What I Do</h3>
+                <h3 className="text-2xl font-semibold text-[#FFC680]">{t("What I Do")}</h3>
                 <ul className="list-disc list-inside text-[#C1C1C1] space-y-4">
                   <li className="flex items-center gap-4">
                     <motion.div 
@@ -36,7 +36,7 @@ const AboutSection = () => {
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.5 }}
                     />
-                    Develop robust back-end systems
+                    {t("Develop robust back-end systems")}
                   </li>
                   <li className="flex items-center gap-4">
                     <motion.div 
@@ -45,7 +45,7 @@ const AboutSection = () => {
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
                     />
-                    Create efficient and scalable APIs
+                    {t("Create efficient and scalable APIs")}
                   </li>
                   <li className="flex items-center gap-4">
                     <motion.div 
@@ -54,7 +54,7 @@ const AboutSection = () => {
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
                     />
-                    Implement modern development practices
+                    {t("Implement modern development practices")}
                   </li>
                   <li className="flex items-center gap-4">
                     <motion.div 
@@ -63,7 +63,7 @@ const AboutSection = () => {
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                     />
-                    Solve complex technical challenges
+                    {t("Solve complex technical challenges")}
                   </li>
                   <li className="flex items-center gap-4">
                     <motion.div 
@@ -72,13 +72,13 @@ const AboutSection = () => {
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.5, delay: 0.4 }}
                     />
-                    AI & AI Agents development
+                    {t("AI & AI Agents development")}
                   </li>
                 </ul>
             </div>
             <blockquote className="border-l-4 border-[#FA6559] pl-6 italic text-lg font-semibold text-[#A8DADC] mb-6 mt-10">
               <p className="mb-2">
-                &quot;Education is the most powerful weapon you can use to change the world.&quot;
+                  &quot;{t("Education is the most powerful weapon you can use to change the world")}&quot;
               </p>
               <span className="block mt-2 text-sm text-[#FA6559]">
                 — Nelson Mandela
