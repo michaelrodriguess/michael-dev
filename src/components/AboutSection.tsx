@@ -74,6 +74,15 @@ const AboutSection = () => {
                     />
                     {t("AI & AI Agents development")}
                   </li>
+                  <li className="flex items-center gap-4">
+                    <motion.div 
+                      className="w-3 h-3 rounded-full bg-[#FFC680]"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.5 }}
+                    />
+                    {t("Requirements gathering and solution architecture")}
+                  </li>
                 </ul>
             </div>
             <blockquote className="border-l-4 border-[#FA6559] pl-6 italic text-lg font-semibold text-[#A8DADC] mb-6 mt-10">
