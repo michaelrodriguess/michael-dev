@@ -5,6 +5,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { ProjectModal } from "./ProjectModal";
 import { ProjectDetails } from "./ProjectCard";
+import { useLanguage } from "@/_i18n";
 
 interface Node {
   id: string;
@@ -137,6 +138,9 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
     };
   }, [data, isActive]);
 
+  const { t } = useLanguage();
+  
+
   return (
     <div className="relative w-full h-full">
       <div ref={mountRef} style={{ width: "100%", height: "100%" }} />
@@ -144,10 +148,10 @@ const MultiverseScene: React.FC<{ data: MultiverseData }> = ({ data }) => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10">
           <div className="p-2 rounded-xl shadow-md transform transition-all duration-300 hover:scale-105">
             <h2 className="text-xl sm:text-2xl font-bold text-white tracking-wider">
-              🚧 Work in Progress 🚀
+              🚧 {t("Work in Progress")} 🚀
             </h2>
             <p className="mt-1 text-xs text-white/70 italic">
-              Something amazing is coming soon!
+              {t("Something amazing is coming soon!")}
             </p>
           </div>
         </div>
