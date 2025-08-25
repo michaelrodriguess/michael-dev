@@ -1,5 +1,6 @@
 import React from "react";
 import { Github, Linkedin, Mail, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/_i18n";
 
 interface ContactItem {
   icon: React.ReactNode;
@@ -10,25 +11,27 @@ interface ContactItem {
 }
 
 const ContactSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const contactItems: ContactItem[] = [
     {
       icon: <Github size={28} />,
       title: "GitHub",
-      description: "Check out my projects and contributions",
+      description: t("Check out my projects and contributions"),
       link: "https://github.com/michaelrodriguess",
       color: "from-pink-500 to-rose-500",
     },
     {
       icon: <Linkedin size={28} />,
       title: "LinkedIn",
-      description: "Let's expand our professional network",
+      description: t("Let's expand our professional network"),
       link: "https://linkedin.com/in/michaelrodriguess/",
       color: "from-blue-500 to-cyan-500",
     },
     {
       icon: <Mail size={28} />,
       title: "Email",
-      description: "Send me a direct message",
+      description: t("Send me a direct message"),
       link: "mailto:hi@michaelrodrigues.dev",
       color: "from-green-500 to-emerald-500",
     },
@@ -42,12 +45,10 @@ const ContactSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#F96458] to-[#FFC680]">
-            Let&apos;s Create Something Amazing Together?
+            {t("title-footer")}
           </h2>
           <p className="text-base sm:text-lg text-[#C1C1C1] max-w-xl sm:max-w-2xl mx-auto px-4 sm:px-0">
-            I&apos;m always open to new projects and collaboration
-            opportunities. Choose your preferred channel to start a
-            conversation!
+           {t("subtitle-footer")}
           </p>
         </div>
 
@@ -99,7 +100,7 @@ const ContactSection: React.FC = () => {
         <div className="mt-8 sm:mt-12 lg:mt-16 text-center">
           <hr className="border-t border-[#C1C1C1]/30 mb-4" />
           <p className="text-[#C1C1C1] text-xs sm:text-sm">
-            © Copyright 2024 - Michael Rodrigues. All rights reserved.
+            © Copyright 2024 - Michael Rodrigues. {t("All rights reserved")}.
           </p>
         </div>
       </div>

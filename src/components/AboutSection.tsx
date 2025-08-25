@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/_i18n";
 
 const AboutSection = () => {
-
-    const { t } = useLanguage();
+  const { t } = useLanguage();
   
   return (
     <section
