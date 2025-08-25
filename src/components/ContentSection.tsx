@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import { useLanguage } from "@/_i18n";
 
 interface ToggleSwitchProps {
   isOn: boolean;
@@ -17,6 +18,8 @@ interface ToggleSwitchProps {
 }
 
 const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isOn, onToggle }) => {
+  const { t } = useLanguage();
+  
   return (
     <div
       onClick={onToggle}
@@ -41,12 +44,12 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isOn, onToggle }) => {
       />
       {!isOn && (
         <span className="absolute left-14 text-white font-medium opacity-100">
-          Knowledge Tree
+          {t("Knowledge Tree")}
         </span>
       )}
       {isOn && (
         <span className="absolute left-6 text-white font-medium opacity-100">
-          Projects
+          {t("Projects")}
         </span>
       )}
     </div>
