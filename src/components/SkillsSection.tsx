@@ -10,17 +10,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/Select";
+import { useLanguage } from "@/_i18n";
 
 const SkillsSection = () => {
   const [activeCategory, setActiveCategory] =
     useState<keyof typeof skillsData>("backend");
 
+  const { t } = useLanguage();
+  
+
   const skillsData = {
     backend: {
-      title: "Backend Development",
+      title: t("Backend Development"),
       icon: Database,
       description:
-        "Experience in designing and implementing robust server-side applications and APIs. Experience in various programming languages and frameworks to create scalable and maintainable systems.",
+        t("Experience in designing and implementing robust server-side applications and APIs. Experience in various programming languages and frameworks to create scalable and maintainable systems."),
       skills: [
         { name: "C", icon: "/icons/c-1.svg" },
         { name: "C++", icon: "/icons/c.svg" },
@@ -37,10 +41,10 @@ const SkillsSection = () => {
       ],
     },
     frontend: {
-      title: "Frontend Development",
+      title: t("Frontend Development"),
       icon: Globe,
       description:
-        "Creating modern, responsive interfaces with a focus on user experience. Experience in using various technologies to create interactive and visually appealing applications.",
+        t("Creating modern, responsive interfaces with a focus on user experience. Experience in using various technologies to create interactive and visually appealing applications."),
       skills: [
         { name: "HTML5", icon: "/icons/html-1.svg" },
         { name: "CSS3", icon: "/icons/css-3.svg" },
@@ -50,10 +54,10 @@ const SkillsSection = () => {
       ],
     },
     tools: {
-      title: "Development Tools & Technologies",
+      title: t("Development Tools & Technologies"),
       icon: Palette,
       description:
-        "A collection of essential tools and technologies that streamline development processes and enhance productivity. Familiar with version control systems, cloud services, and containerization tools.",
+        t("A collection of essential tools and technologies that streamline development processes and enhance productivity. Familiar with version control systems, cloud services, and containerization tools."),
       skills: [
         { name: "Git", icon: "/icons/git-icon.svg" },
         { name: "GitHub", icon: "/icons/github.svg" },
@@ -70,12 +74,10 @@ const SkillsSection = () => {
     <section id="skills" className="py-2 sm:py-5 lg:py-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <h2 className="text-3xl md:text-5xl font-bold mb-6 text-center text-[#F96458]">
-          Skills
+          {t("Skills")}
         </h2>
         <p className="text-gray-300 text-center mb-10 max-w-3xl mx-auto">
-          Throughout my journey as a developer, I have gained experience in
-          various technologies and tools. Here is an overview of my main
-          competencies:
+          {t("Throughout my journey as a developer, I have gained experience in various technologies and tools. Here is an overview of my main competencies:")}
         </p>
 
         <div className="bg-[#3F404A] rounded-xl p-6 sm:p-8 transition-all">
