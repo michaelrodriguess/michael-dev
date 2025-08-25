@@ -156,7 +156,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     month: "long",
                     day: "numeric",
                   })
-                : "Present"}
+                : t("Present")}
             </span>
           </div>
 
