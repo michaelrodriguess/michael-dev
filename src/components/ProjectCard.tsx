@@ -104,7 +104,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             <span>{project.startDate}</span>
           </div>
           <button className="text-[#FFC680] hover:text-[#ffb766] transition-colors duration-200">
-            Ver detalhes →
+            {t("See details")} →
           </button>
         </div>
       </div>
