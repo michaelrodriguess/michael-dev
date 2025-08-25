@@ -15,6 +15,7 @@ import "swiper/css/effect-cards";
 import { EffectCards, Navigation } from "swiper/modules";
 import { getStatusColor, ProjectDetails } from "./ProjectCard";
 import Image from "next/image";
+import { useLanguage } from "@/_i18n";
 
 interface ProjectModalProps {
   project: ProjectDetails;
@@ -31,6 +32,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   const handleSlideChange = (swiper: any) => {
     setCurrentIndex(swiper.activeIndex);
   };
+
+    const { t } = useLanguage();
+  
 
   return (
     <motion.div
@@ -102,7 +106,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               </h2>
               <span
                 className={`px-3 py-1 rounded-full text-xs md:text-sm ${getStatusColor(
-                  project.status
+                  project.status,
+                  t
                 )}`}
               >
                 {project.status}

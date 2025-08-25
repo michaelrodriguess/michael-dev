@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
+import { useLanguage } from "@/_i18n";
+import { TranslationKeys } from "@/_i18n/config";
 
 export interface ProjectDetails {
   id: string;
@@ -25,23 +27,26 @@ interface ProjectCardProps {
   onClick: (project: ProjectDetails) => void;
 }
 
-export const getStatusColor = (status: string) => {
+export const getStatusColor = (status: string, t: (key: TranslationKeys) => string) => {
   switch (status) {
-    case "Em Desenvolvimento":
+    case t("In Development"):
       return "bg-yellow-500";
-    case "Concluído":
+    case t("Completed"):
       return "bg-green-500";
-    case "Em Pausa":
+    case t("On Hold"):
       return "bg-red-500";
     default:
       return "bg-gray-500";
   }
 };
 
+
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
   onClick,
 }) => {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -64,7 +69,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="absolute top-2 right-2">
             <span
               className={`px-3 py-1 rounded-full text-xs text-white ${getStatusColor(
-                project.status
+                project.status,
+                t
               )}`}
             >
               {project.status}
