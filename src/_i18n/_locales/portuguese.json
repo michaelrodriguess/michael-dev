@@ -36,5 +36,11 @@
   "Send me a direct message": "Envie-me uma mensagem",
   "title-footer": "Vamos criar algo incrível juntos?",
   "subtitle-footer": "Estou sempre aberto a novos projetos e oportunidades de colaboração. Escolha seu canal preferido para começar uma conversa!",
-  "All rights reserved": "Todos os direitos reservados"
+  "All rights reserved": "Todos os direitos reservados",
+  "Personal Portfolio": "Portfólio pessoal",
+  "A digital portfolio that showcases my journey and expertise in software development.":  "Um portfólio digital que mostra minha trajetória e experiência em desenvolvimento de software.",
+  "A modern and responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. It highlights my personal projects, skills, and an interactive knowledge tree. This portfolio is designed to reflect my journey as a developer and the impactful projects I've worked on.": "Um portfólio moderno e responsivo criado com Next.js, TypeScript e Tailwind CSS. Ele destaca meus projetos pessoais, habilidades e uma árvore de conhecimento interativa. Este portfólio foi projetado para refletir minha trajetória como desenvolvedor e os projetos impactantes em que trabalhei.",
+  "Finance Control": "Controle financeiro",
+  "A finance management application to track my expenses, income, savings and use AI to generate insights.": "Um aplicativo de gestão financeira para acompanhar minhas despesas, receitas, poupanças e usar IA para gerar insights.",
+  "A finance management application built with Next.js, TypeScript, and Tailwind CSS. It allows users to track their expenses, income, and savings in one place. The application is designed to be simple and easy to use, with a responsive design that works on all devices.": "Um aplicativo de gestão financeira criado com Next.js, TypeScript e Tailwind CSS. Ele permite que os usuários acompanhem suas despesas, receitas e poupanças em um só lugar. O aplicativo foi projetado para ser simples e fácil de usar, com um design responsivo que funciona em todos os dispositivos."
 }

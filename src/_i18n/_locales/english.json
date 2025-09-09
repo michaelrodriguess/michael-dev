@@ -36,5 +36,14 @@
   "Send me a direct message": "Send me a direct message",
   "title-footer": "Let's Create Something Amazing Together?",
   "subtitle-footer": "I'm always open to new projects and collaboration opportunities. Choose your preferred channel to start a conversation!",
-  "All rights reserved": "All rights reserved"
+  "All rights reserved": "All rights reserved",
+  "Personal Portfolio": "Personal Portfolio",
+
+  "A digital portfolio that showcases my journey and expertise in software development.": "A digital portfolio that showcases my journey and expertise in software development.",
+  "A modern and responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. It highlights my personal projects, skills, and an interactive knowledge tree. This portfolio is designed to reflect my journey as a developer and the impactful projects I've worked on.": "A modern and responsive portfolio built with Next.js, TypeScript, and Tailwind CSS. It highlights my personal projects, skills, and an interactive knowledge tree. This portfolio is designed to reflect my journey as a developer and the impactful projects I've worked on.",
+  "Finance Control": "Finance Control",
+  "A finance management application to track my expenses, income, savings and use AI to generate insights.": "A finance management application to track my expenses, income, savings and use AI to generate insights.",
+  "A finance management application built with Next.js, TypeScript, and Tailwind CSS. It allows users to track their expenses, income, and savings in one place. The application is designed to be simple and easy to use, with a responsive design that works on all devices.": "A finance management application built with Next.js, TypeScript, and Tailwind CSS. It allows users to track their expenses, income, and savings in one place. The application is designed to be simple and easy to use, with a responsive design that works on all devices."
+
+
 }

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ProjectCard, type ProjectDetails } from "./ProjectCard";
 import { ProjectModal } from "./ProjectModal";
-import { projectData } from "../_lib/projectData";
+import { getProjectData } from "../_lib/projectData";
 import KnowledgeTreeSection from "./KnowledgeTreeSection";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -19,6 +19,7 @@ interface ToggleSwitchProps {
 
 const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ isOn, onToggle }) => {
   const { t } = useLanguage();
+
   
   return (
     <div
@@ -62,6 +63,9 @@ export const ContentSections = () => {
     null
   );
   const [isMobile, setIsMobile] = useState(false);
+  const { t } = useLanguage();
+  const projectData = getProjectData(t);
+
 
   useEffect(() => {
     const handleResize = () => {
