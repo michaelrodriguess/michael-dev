@@ -44,7 +44,7 @@ const ContactSection: React.FC = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#F96458] to-[#FFC680]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#F96458] to-[#FFC680] leading-tight sm:leading-snug md:leading-normal">
             {t("title-footer")}
           </h2>
           <p className="text-base sm:text-lg text-[#C1C1C1] max-w-xl sm:max-w-2xl mx-auto px-4 sm:px-0">
